@@ -1,0 +1,14 @@
+{
+  "name": "web-client-iot",
+  "version": "1.0.0",
+  "description": "Client que irá receber as informações da dashboard de Iot",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-dweetio": "0.0.11"
+  }
+}
