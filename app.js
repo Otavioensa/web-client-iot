@@ -1,7 +1,24 @@
 
-	var dweetClient = require('node-dweetio');
-	var dweetio = new dweetClient();
+  var express = require('express');
+  var app = express();
+  var bodyParser = require('body-parser');
 
-	dweetio.listen_for('cs-iot-thing-tutorial', function (dweet) {
-		console.log(dweet.content);
-	});
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+  app.use(express.static('public'));
+
+  app.get('/', function (req, res) {
+  	res.sendFile(__dirname + 'index.html');
+  });
+
+  app.use(function (req, res) {
+  	 res.status(404).json({
+      mensagem: 'Recurso não existente'
+    });
+  });
+
+  app.listen(process.env.PORT || 3000, function () {
+  	console.log('Servidor no ar');
+  });
+
+
