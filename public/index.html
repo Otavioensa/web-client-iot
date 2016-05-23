@@ -87,14 +87,13 @@
   <script>
     var socket = io();
 
-    socket.on('sensor-data', function(content){
-      
-      var template = "<tr><td>" + content.sensor1 + 
-        "</td> <td>"+ content.sensor2 + 
-        "</td><td>" + "04:05:05" +"</tr> ";
-      
+    socket.on('sensor-data', function(content){ 
+      var template = "<tr><td>" + content.sensorData.sensor1 + 
+        "</td> <td>"+ content.sensorData.sensor2 + 
+        "</td><td>" + content.time +"</tr> ";
 
       $('.table-body').append(template);
+
     });
 
   </script>

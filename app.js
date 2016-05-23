@@ -6,6 +6,7 @@
   var io = require('socket.io')(http);
   var dweetClient = require('node-dweetio');
   var dweetio = new dweetClient();
+  var moment = require('moment');
 
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
@@ -31,8 +32,13 @@
   });
 
   dweetio.listen_for('web-client-iot-cs', function (dweet) {
-    console.log(dweet.content);
-    io.emit('sensor-data', dweet.content);
+    
+    var data = {
+      sensorData: dweet.content,
+      time: moment().format('HH:mm:ss')
+    };
+
+    io.emit('sensor-data', data);
   });
 
 
