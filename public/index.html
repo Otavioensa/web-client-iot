@@ -42,7 +42,7 @@
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
                     <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                </li>                       
+                </li>
             </ul>
         </div>
     </nav>
@@ -59,10 +59,10 @@
                           <thead>
                               <tr>
                                   <th>Temperature</th>
-                                  <th>Time</th>                                              
+                                  <th>Time</th>
                               </tr>
                           </thead>
-                          <tbody class="table-body">                                            
+                          <tbody class="table-body">
                           </tbody>
                       </table>
                   </div>
@@ -84,14 +84,14 @@
   <script src="js/plugins/morris/morris-data.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io();
+    const socket = io()
 
-    socket.on('sensor-data', function(content){ 
-      var template = "<tr><td>" + content.sensorData.temperatura + "ºC</td>" + 
-        "<td>" + content.time +"</td> </tr> ";
+    socket.on('sensor-data', (content) => {
+      let template = "<tr><td>" + content.sensorData.temperature + "ºC</td>" +
+        "<td>" + content.time +"</td> </tr> "
 
-      $('.table-body').append(template);
-    });
+      $('.table-body').append(template)
+    })
 
   </script>
 </body>

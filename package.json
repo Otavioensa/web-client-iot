@@ -1,12 +1,12 @@
 {
   "name": "web-client-iot",
   "version": "1.0.0",
-  "description": "Client que irá receber as informações da dashboard de Iot",
+  "description": "Application responsible for subscribing to Dweet IoT tweets",
   "main": "app.js",
   "scripts": {
-    "test": "npm run test"
+    "start": "node app.js"
   },
-  "author": "",
+  "author": "<otavioensa@gmail.com> Otavio Augusto",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.1",
